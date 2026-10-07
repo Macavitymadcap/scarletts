@@ -151,7 +151,7 @@ mark {
 	font-family: var(--font-display);
 	font-weight: 400;
 	font-size: 48px;
-	line-height: 1;
+	line-height: 1.25;
 	letter-spacing: 0.5px;
 	text-transform: uppercase;
 }
@@ -344,7 +344,6 @@ mark {
 	}
 	.masthead__title {
 		font-size: 96px;
-		line-height: 0.92;
 	}
 	.masthead .sc-sticker {
 		right: var(--space-8);
