@@ -1,10 +1,12 @@
 export type Member = { name: string; role: string };
 
+export type Review = { content: string, source: string, citation?: string  };
+
 export const bio = {
 	lede: 'Ska and other music you can dance to, out of Bristol.',
 	paragraphs: [
-		'Scarletts found themselves in the same corner of Bristol after extensively circulating festivals for decades. Through their combine love of good times, basslines, brass and debauchery, they created a sound of their own.',
-		'Expect bouncy, catchy beats, steamy guitar riffs, soulful vocals, blusey grooves, honest lyrics and brass hooks to get your knees up',
+		'Scarletts found themselves in the same corner of Bristol after extensively circulating festivals for decades. Through their combined love of good times, basslines, brass and debauchery, they created a sound of their own.',
+		'Expect bouncy, catchy beats, steamy guitar riffs, soulful vocals, bluesy grooves, honest lyrics and brass hooks to get your knees up.',
 		'Watch this space for gig announcements, new recordings and other shenanigans in the future.',
 	],
 	members: [
@@ -15,5 +17,9 @@ export const bio = {
 		{ name: 'Dan', role: 'Bass' },
 		{ name: 'Callum', role: 'Drums' },
 	] satisfies Member[],
+	reviews: [
+		{ content: 'They can certainly measure heads', source: 'Jarvis Cocker'},
+		{ content: 'I\'d throw my dick at them', source: 'Jesus' }
+	] satisfies Review[],
 	influences: ["Mungo's Hi Fi", 'No Doubt', 'Madness'],
 };

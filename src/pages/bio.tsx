@@ -1,6 +1,7 @@
 import { Layout } from '../components/Layout';
 import { LineUp } from '../components/LineUp';
 import { Photo } from '../components/Photo';
+import { Reviews } from '../components/Reviews';
 import {
 	Button,
 	Checkerboard,
@@ -40,6 +41,16 @@ export const Bio = () => {
 				</div>
 				{bandPhoto && <Photo photo={bandPhoto} />}
 			</section>
+
+			{bio.reviews.length > 0 && 
+			<Section 
+				id="reviews"
+				title="What people say"
+				aside={<Tape tilt="right">Word on the street</Tape>} 
+			>
+				<Reviews reviews={bio.reviews} />
+			</Section>
+			}
 			<Checkerboard />
 			<Section id="line-up" title="The line-up">
 				<LineUp members={bio.members} />
