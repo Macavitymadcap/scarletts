@@ -1,19 +1,19 @@
-import { Layout } from "../components/Layout";
-import { LineUp } from "../components/LineUp";
-import { Photo } from "../components/Photo";
+import { Layout } from '../components/Layout';
+import { LineUp } from '../components/LineUp';
+import { Photo } from '../components/Photo';
 import {
 	Button,
 	Checkerboard,
 	Masthead,
 	Section,
 	Tape,
-} from "../components/ui";
-import { bio } from "../content/bio";
-import { photosIn } from "../content/photos";
-import { site } from "../site";
+} from '../components/ui';
+import { bio } from '../content/bio';
+import { photosIn } from '../content/photos';
+import { site } from '../site';
 
 export const Bio = () => {
-	const [bandPhoto] = photosIn("band");
+	const [bandPhoto] = photosIn('band');
 
 	return (
 		<Layout title="Bio" current="/bio">

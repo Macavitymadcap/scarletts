@@ -1,5 +1,5 @@
-import { Layout } from "../components/Layout";
-import { Button, Tape } from "../components/ui";
+import { Layout } from '../components/Layout';
+import { Button, Tape } from '../components/ui';
 
 export const NotFound = () => (
 	<Layout title="Page not found" description="There's nothing at this address.">

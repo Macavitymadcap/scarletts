@@ -1,4 +1,4 @@
-import { site, socials } from "../site";
+import { site, socials } from '../site';
 
 export const Footer = () => (
 	<footer class="footer">
@@ -12,7 +12,7 @@ export const Footer = () => (
 			</ul>
 		)}
 		<p class="footer__mail">
-			Bookings:{" "}
+			Bookings:{' '}
 			<a href={`mailto:${site.bookingsEmail}`}>{site.bookingsEmail}</a>
 		</p>
 	</footer>

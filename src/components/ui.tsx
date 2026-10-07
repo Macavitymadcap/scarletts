@@ -1,40 +1,40 @@
-import type { Child } from "hono/jsx";
+import type { Child } from 'hono/jsx';
 
 const cx = (...classes: (string | false | undefined | null)[]) =>
-	classes.filter(Boolean).join(" ");
+	classes.filter(Boolean).join(' ');
 
 export type ButtonProps = {
 	href: string;
-	variant?: "primary" | "secondary";
+	variant?: 'primary' | 'secondary';
 	children: Child;
 };
 
 export const Button = ({
 	href,
-	variant = "primary",
+	variant = 'primary',
 	children,
 }: ButtonProps) => (
-	<a href={href} class={cx("sc-btn", `sc-btn--${variant}`)}>
+	<a href={href} class={cx('sc-btn', `sc-btn--${variant}`)}>
 		{children}
 	</a>
 );
 
 export type TapeProps = {
-	tone?: "ink" | "scarlet";
-	tilt?: "left" | "right";
+	tone?: 'ink' | 'scarlet';
+	tilt?: 'left' | 'right';
 	children: Child;
 };
 
-export const Tape = ({ tone = "ink", tilt = "left", children }: TapeProps) => (
-	<span class={cx("sc-tape", `sc-tape--${tone}`, `sc-tape--${tilt}`)}>
+export const Tape = ({ tone = 'ink', tilt = 'left', children }: TapeProps) => (
+	<span class={cx('sc-tape', `sc-tape--${tone}`, `sc-tape--${tilt}`)}>
 		{children}
 	</span>
 );
 
-export type StickerProps = { tone?: "gold" | "scarlet"; children: Child };
+export type StickerProps = { tone?: 'gold' | 'scarlet'; children: Child };
 
-export const Sticker = ({ tone = "gold", children }: StickerProps) => (
-	<span class={cx("sc-sticker", `sc-sticker--${tone}`)}>{children}</span>
+export const Sticker = ({ tone = 'gold', children }: StickerProps) => (
+	<span class={cx('sc-sticker', `sc-sticker--${tone}`)}>{children}</span>
 );
 
 export const Checkerboard = ({ rows = 1 }: { rows?: number }) => (

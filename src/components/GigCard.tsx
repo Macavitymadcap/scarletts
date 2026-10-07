@@ -1,9 +1,9 @@
-import { type Gig, gigDateParts } from "../content/gigs";
-import { Button, Tape } from "./ui";
+import { type Gig, gigDateParts } from '../content/gigs';
+import { Button, Tape } from './ui';
 
 export const GigCard = ({ gig }: { gig: Gig }) => {
 	const { weekday, day, month } = gigDateParts(gig.date);
-	const status = gig.status ?? "on-sale";
+	const status = gig.status ?? 'on-sale';
 
 	return (
 		<article class="sc-gig">
@@ -17,11 +17,11 @@ export const GigCard = ({ gig }: { gig: Gig }) => {
 				<p class="sc-gig__city">{gig.city}</p>
 				{gig.details && <p class="sc-gig__details">{gig.details}</p>}
 				<div class="sc-gig__action">
-					{status === "sold-out" ? (
+					{status === 'sold-out' ? (
 						<Tape tone="ink" tilt="left">
 							Sold out
 						</Tape>
-					) : status === "free" ? (
+					) : status === 'free' ? (
 						<Tape tone="scarlet" tilt="right">
 							Free entry
 						</Tape>

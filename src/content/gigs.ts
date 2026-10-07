@@ -1,4 +1,4 @@
-export type GigStatus = "on-sale" | "sold-out" | "free";
+export type GigStatus = 'on-sale' | 'sold-out' | 'free';
 
 export type Gig = {
 	date: string; // ISO date, e.g. "2026-11-14"
@@ -22,13 +22,13 @@ export const upcomingGigs = (all: Gig[] = gigs, today = new Date()): Gig[] => {
 export const gigDateParts = (isoDate: string) => {
 	const date = new Date(`${isoDate}T12:00:00Z`);
 	const part = (options: Intl.DateTimeFormatOptions) =>
-		new Intl.DateTimeFormat("en-GB", {
+		new Intl.DateTimeFormat('en-GB', {
 			...options,
-			timeZone: "Europe/London",
+			timeZone: 'Europe/London',
 		}).format(date);
 	return {
-		weekday: part({ weekday: "short" }),
-		day: Number(part({ day: "numeric" })),
-		month: part({ month: "short" }),
+		weekday: part({ weekday: 'short' }),
+		day: Number(part({ day: 'numeric' })),
+		month: part({ month: 'short' }),
 	};
 };

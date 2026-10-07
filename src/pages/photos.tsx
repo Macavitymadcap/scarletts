@@ -1,19 +1,19 @@
-import { Layout } from "../components/Layout";
-import { PhotoGrid } from "../components/Photo";
+import { Layout } from '../components/Layout';
+import { PhotoGrid } from '../components/Photo';
 import {
 	Checkerboard,
 	Masthead,
 	Section,
 	Sticker,
 	Tape,
-} from "../components/ui";
-import { photosIn } from "../content/photos";
+} from '../components/ui';
+import { photosIn } from '../content/photos';
 
-const count = (n: number) => `${n} photo${n === 1 ? "" : "s"}`;
+const count = (n: number) => `${n} photo${n === 1 ? '' : 's'}`;
 
 export const Photos = () => {
-	const gigPhotos = photosIn("gigs");
-	const bandPhotos = photosIn("band");
+	const gigPhotos = photosIn('gigs');
+	const bandPhotos = photosIn('band');
 	const hasPhotos = gigPhotos.length + bandPhotos.length > 0;
 
 	return (
@@ -23,7 +23,7 @@ export const Photos = () => {
 				title="Photos"
 				intro={
 					hasPhotos
-						? "On stage and off. Tap any photo to see it full size."
+						? 'On stage and off. Tap any photo to see it full size.'
 						: undefined
 				}
 				sticker={<Sticker tone="scarlet">Snap!</Sticker>}
