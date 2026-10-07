@@ -1,0 +1,71 @@
+<!-- @dsCard group="Pages" height=1500 width=1280 page subtitle="Home page mock-up at desktop width" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Home page mock-up</title>
+<style>
+  body { margin: 0; overflow-x: hidden; }
+  .page { min-height: 100vh; background: var(--paper); color: var(--ink); }
+  .hero { display: grid; grid-template-columns: 1fr; border-bottom: var(--border-hard) solid var(--ink); }
+  .hero__block { background: var(--scarlet); color: var(--on-scarlet); padding: var(--space-8) var(--space-4); display: flex; flex-direction: column; justify-content: flex-end; gap: var(--space-4); }
+  .hero__block :focus-visible { outline-color: var(--on-scarlet); }
+  .hero__kicker { font-family: var(--font-stamp); font-size: 14px; line-height: 18px; letter-spacing: .5px; text-transform: uppercase; margin: 0; }
+  .hero__name { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 56px; line-height: .92; letter-spacing: .5px; text-transform: uppercase; }
+  .hero__pitch { margin: 0; font-size: 17px; line-height: 26px; max-width: 32ch; }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-top: var(--space-2); }
+  .hero__photo { position: relative; background: var(--night); }
+  .hero__photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .hero__photo .sc-sticker { position: absolute; right: var(--space-4); bottom: var(--space-4); }
+  .section { padding: var(--space-8) var(--space-4); }
+  .section__head { display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4); }
+  .section__title { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 28px; line-height: 1.1; letter-spacing: .5px; text-transform: uppercase; }
+  .footer { background: var(--night); color: var(--on-night); padding: var(--space-8) var(--space-4); display: grid; gap: var(--space-4); }
+  .footer a { color: var(--on-night); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 15px; }
+  .footer a:focus-visible { outline: 3px solid var(--on-night); outline-offset: 3px; }
+  .footer__links { display: flex; flex-wrap: wrap; gap: var(--space-4); margin: 0; padding: 0; list-style: none; }
+  .footer__mail { font-family: var(--font-stamp); font-size: 14px; margin: 0; }
+  .footer__mail a { font-family: var(--font-stamp); font-weight: 400; text-transform: none; letter-spacing: .5px; }
+  @media (min-width: 800px) {
+    .hero { grid-template-columns: 5fr 7fr; min-height: 520px; }
+    .hero__block { padding: var(--space-8); }
+    .hero__name { font-size: 96px; }
+    .section, .footer { padding: var(--space-8); }
+    .footer { grid-template-columns: 1fr auto; align-items: center; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var S = window.Scarletts, h = React.createElement;
+  var PHOTO = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900"><rect width="1200" height="900" fill="rgb(70,70,70)"/><rect x="0" y="560" width="1200" height="340" fill="rgb(40,40,40)"/><circle cx="380" cy="420" r="90" fill="rgb(150,150,150)"/><rect x="300" y="510" width="160" height="300" fill="rgb(150,150,150)"/><circle cx="640" cy="380" r="90" fill="rgb(185,185,185)"/><rect x="560" y="470" width="160" height="340" fill="rgb(185,185,185)"/><circle cx="890" cy="430" r="90" fill="rgb(130,130,130)"/><rect x="810" y="520" width="160" height="290" fill="rgb(130,130,130)"/><text x="600" y="120" text-anchor="middle" font-family="monospace" font-size="40" fill="rgb(220,220,220)">LEAD PHOTO</text></svg>');
+  var page = h('div', {className: 'page'},
+    h(S.Tricolour),
+    h(S.Nav, {links: [{label: 'Home', href: '#', current: true}, {label: 'Bio', href: '#bio'}, {label: 'Photos', href: '#photos'}]}),
+    h('header', {className: 'hero'},
+      h('div', {className: 'hero__block'},
+        h('p', {className: 'hero__kicker'}, 'Ska / Bristol'),
+        h('h1', {className: 'hero__name'}, 'Scarletts'),
+        h('p', {className: 'hero__pitch'}, 'Ska and other music you can dance to, out of Bristol.'),
+        h('div', {className: 'hero__actions'},
+          h(S.Button, {variant: 'secondary', href: '#bio'}, 'Read the bio'),
+          h(S.Button, {variant: 'secondary', href: '#photos'}, 'See the photos'))),
+      h('div', {className: 'hero__photo'},
+        h('img', {src: PHOTO, alt: 'Placeholder for the lead band photo', width: 1200, height: 900}),
+        h(S.Sticker, null, 'Dance!'))),
+    h(S.Checkerboard, {rows: 1}),
+    h('section', {className: 'section', 'aria-labelledby': 'next'},
+      h('div', {className: 'section__head'},
+        h('h2', {className: 'section__title', id: 'next'}, 'Next gig'),
+        h(S.Tape, {tone: 'scarlet', tilt: 'right'}, 'Coming soon')),
+      h(S.GigCard, {weekday: 'Sat', day: 14, month: 'Nov', venue: 'Venue name', city: 'Bristol', details: 'Doors 8pm. £8 on the door.', ticketsHref: '#'})),
+    h(S.Checkerboard, {rows: 1}),
+    h('footer', {className: 'footer'},
+      h('ul', {className: 'footer__links'},
+        h('li', null, h('a', {href: '#'}, 'Instagram')),
+        h('li', null, h('a', {href: '#'}, 'YouTube')),
+        h('li', null, h('a', {href: '#'}, 'Bandcamp'))),
+      h('p', {className: 'footer__mail'}, 'Bookings: ', h('a', {href: 'mailto:bookings@scarletts.uk'}, 'bookings@scarletts.uk'))));
+  ReactDOM.createRoot(document.getElementById('root')).render(page);
+</script>
+</body>
+</html>

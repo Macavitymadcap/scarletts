@@ -1,0 +1,14 @@
+<!-- @dsCard group="Labels" height=100 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Tape</title>
+<style>body{margin:0;padding:24px;} .row{display:flex;flex-wrap:wrap;gap:24px;align-items:center;}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var S = window.Scarletts, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', {className: 'row'}, h(S.Tape, null, 'Tonight'), h(S.Tape, {tone: 'scarlet', tilt: 'right'}, 'New single'), h(S.Tape, null, 'Sold out')));
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!-- @dsCard group="Content" height=420 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>TrackList</title>
+<style>body{margin:0;padding:24px;}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var S = window.Scarletts, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(S.TrackList, {tracks: [
+    {title: 'Track title one', src: 'https://media.scarletts.uk/audio/track-01.mp3', duration: '3:42', note: 'Placeholder until the session is mixed.', isNew: true},
+    {title: 'Track title two', src: 'https://media.scarletts.uk/audio/track-02.mp3', duration: '4:05'},
+    {title: 'A longer track title three', src: 'https://media.scarletts.uk/audio/track-03.mp3', duration: '2:58'}
+  ]}));
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!-- @dsCard group="Navigation" height=120 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Nav</title>
+<style>body{margin:0;padding:24px;} .row{display:flex;flex-wrap:wrap;gap:24px;align-items:center;}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var S = window.Scarletts, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(S.Nav, {links: [{label: 'Bio', href: '#bio', current: true}, {label: 'Photos', href: '#photos'}, {label: 'Music', href: '#music'}, {label: 'Gigs', href: '#gigs'}]}));
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!-- @dsCard group="Pages" height=1900 width=1280 page subtitle="Bio page mock-up at desktop width" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Bio page mock-up</title>
+<style>
+  body { margin: 0; overflow-x: hidden; }
+  .page { min-height: 100vh; background: var(--paper); color: var(--ink); }
+  .masthead { background: var(--night); color: var(--on-night); padding: var(--space-8) var(--space-4); border-bottom: var(--border-hard) solid var(--ink); }
+  .masthead__kicker { margin: 0 0 var(--space-2); font-family: var(--font-stamp); font-size: 14px; line-height: 18px; letter-spacing: .5px; text-transform: uppercase; }
+  .masthead__title { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 48px; line-height: 1; letter-spacing: .5px; text-transform: uppercase; }
+  .masthead__title mark { background: var(--scarlet); color: var(--on-scarlet); padding: 0 var(--space-2); }
+  .story { display: grid; gap: var(--space-8); padding: var(--space-8) var(--space-4); }
+  .story__text p { margin: 0 0 var(--space-4); font-size: 17px; line-height: 26px; max-width: 62ch; }
+  .story__text .lede { font-size: 20px; line-height: 30px; font-weight: 800; }
+  .placeholder { color: var(--ink-muted); }
+  .section { padding: 0 var(--space-4) var(--space-8); }
+  .section__head { display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4); }
+  .section__title { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 28px; line-height: 1.1; letter-spacing: .5px; text-transform: uppercase; }
+  .influences { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); margin: 0; padding: 0; list-style: none; font-family: var(--font-stamp); font-size: 14px; line-height: 18px; text-transform: uppercase; }
+  .influences li::before { content: "+ "; color: var(--scarlet-ink); }
+  .cta { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-top: var(--space-4); }
+  .footer { background: var(--night); color: var(--on-night); padding: var(--space-8) var(--space-4); display: grid; gap: var(--space-4); }
+  .footer a { color: var(--on-night); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 15px; }
+  .footer a:focus-visible { outline: 3px solid var(--on-night); outline-offset: 3px; }
+  .footer__links { display: flex; flex-wrap: wrap; gap: var(--space-4); margin: 0; padding: 0; list-style: none; }
+  .footer__mail { font-family: var(--font-stamp); font-size: 14px; margin: 0; }
+  .footer__mail a { font-family: var(--font-stamp); font-weight: 400; text-transform: none; letter-spacing: .5px; }
+  @media (min-width: 800px) {
+    .masthead { padding: var(--space-8); }
+    .masthead__title { font-size: 96px; line-height: .92; }
+    .story { grid-template-columns: 7fr 5fr; padding: var(--space-8); align-items: start; }
+    .section, .footer { padding-left: var(--space-8); padding-right: var(--space-8); }
+    .footer { grid-template-columns: 1fr auto; align-items: center; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var S = window.Scarletts, h = React.createElement;
+  var PHOTO = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000"><rect width="800" height="1000" fill="rgb(80,80,80)"/><rect y="640" width="800" height="360" fill="rgb(45,45,45)"/><circle cx="400" cy="420" r="130" fill="rgb(175,175,175)"/><rect x="290" y="550" width="220" height="400" fill="rgb(175,175,175)"/><text x="400" y="110" text-anchor="middle" font-family="monospace" font-size="40" fill="rgb(220,220,220)">BIO PHOTO</text></svg>');
+  var ph = (t) => h('span', {className: 'placeholder'}, t);
+  var page = h('div', {className: 'page'},
+    h(S.Tricolour),
+    h(S.Nav, {links: [{label: 'Home', href: '#'}, {label: 'Bio', href: '#bio', current: true}, {label: 'Photos', href: '#photos'}]}),
+    h('header', {className: 'masthead'},
+      h('p', {className: 'masthead__kicker'}, 'Bio / Bristol'),
+      h('h1', {className: 'masthead__title'}, 'Who are ', h('mark', null, 'Scarletts'), '?')),
+    h('section', {className: 'story'},
+      h('div', {className: 'story__text'},
+        h('p', {className: 'lede'}, 'Ska and other music you can dance to, out of Bristol.'),
+        h('p', null, ph('[Placeholder: how the band started, two or three sentences.]')),
+        h('p', null, ph('[Placeholder: what a Scarletts gig is like, and where the band plays.]')),
+        h('p', null, ph('[Placeholder: what is coming next, such as the new recordings.]')),
+        h('div', {className: 'cta'},
+          h(S.Button, {href: 'mailto:bookings@scarletts.uk'}, 'Book the band'),
+          h(S.Button, {variant: 'secondary', href: '#photos'}, 'See the photos'))),
+      h(S.Photo, {src: PHOTO, alt: 'Placeholder for a band photo', width: 800, height: 1000, credit: 'Photo: band member'})),
+    h(S.Checkerboard, {rows: 1}),
+    h('section', {className: 'section', style: {paddingTop: 'var(--space-8)'}, 'aria-labelledby': 'lineup'},
+      h('div', {className: 'section__head'}, h('h2', {className: 'section__title', id: 'lineup'}, 'The line-up')),
+      h(S.LineUp, {members: [
+        {name: 'Member one', role: 'Instrument'}, {name: 'Member two', role: 'Instrument'}, {name: 'Member three', role: 'Instrument'},
+        {name: 'Member four', role: 'Instrument'}, {name: 'Member five', role: 'Instrument'}, {name: 'Member six', role: 'Instrument'}]})),
+    h('section', {className: 'section', 'aria-labelledby': 'influences'},
+      h('div', {className: 'section__head'},
+        h('h2', {className: 'section__title', id: 'influences'}, 'Influences'),
+        h(S.Tape, {tilt: 'left'}, 'Turn it up')),
+      h('ul', {className: 'influences'},
+        h('li', null, 'Influence one'), h('li', null, 'Influence two'), h('li', null, 'Influence three'),
+        h('li', null, 'Influence four'), h('li', null, 'Influence five'))),
+    h(S.Checkerboard, {rows: 1}),
+    h('footer', {className: 'footer'},
+      h('ul', {className: 'footer__links'},
+        h('li', null, h('a', {href: '#'}, 'Instagram')),
+        h('li', null, h('a', {href: '#'}, 'YouTube')),
+        h('li', null, h('a', {href: '#'}, 'Bandcamp'))),
+      h('p', {className: 'footer__mail'}, 'Bookings: ', h('a', {href: 'mailto:bookings@scarletts.uk'}, 'bookings@scarletts.uk'))));
+  ReactDOM.createRoot(document.getElementById('root')).render(page);
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+// Assets-only Worker: no "main" entry, so Cloudflare serves dist/ directly
+// and requests cost nothing. A Worker script arrives with the mailing list.
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "scarletts",
+	"compatibility_date": "2026-10-01",
+	"assets": {
+		"directory": "./dist",
+		// Serves dist/404.html with a 404 status for unknown paths.
+		"not_found_handling": "404-page"
+	},
+	"routes": [{ "pattern": "scarletts.uk", "custom_domain": true }]
+}

@@ -1,0 +1,14 @@
+<!-- @dsCard group="Content" height=420 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>GigCard</title>
+<style>body{margin:0;padding:24px;} .row{display:flex;flex-wrap:wrap;gap:24px;align-items:center;}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var S = window.Scarletts, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', {style: {display: 'grid', gap: '16px'}}, h(S.GigCard, {weekday: 'Sat', day: 14, month: 'Nov', venue: 'Venue name', city: 'Bristol', details: 'Doors 8pm. £8 on the door.', ticketsHref: '#'}), h(S.GigCard, {weekday: 'Fri', day: 4, month: 'Dec', venue: 'Another venue', city: 'Bristol', status: 'sold-out'})));
+</script>
+</body>
+</html>

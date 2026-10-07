@@ -1,0 +1,15 @@
+<!-- @dsCard group="Content" height=360 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Photo</title>
+<style>body{margin:0;padding:24px;} .row{display:flex;flex-wrap:wrap;gap:24px;align-items:center;}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var PH = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="400" height="267"><rect width="400" height="267" fill="rgb(120,120,120)"/><rect width="200" height="267" fill="rgb(60,60,60)"/><circle cx="260" cy="120" r="48" fill="rgb(190,190,190)"/></svg>');
+  var S = window.Scarletts, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', {style: {maxWidth: '400px', paddingTop: '16px'}}, h(S.Photo, {src: PH, alt: 'Placeholder for a band photo', width: 400, height: 267, credit: 'Photo: band member', sticker: 'New'})));
+</script>
+</body>
+</html>

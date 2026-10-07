@@ -1,0 +1,107 @@
+/* Scarletts — generated from tokens.json */
+:root,
+[data-theme="light"] {
+	--paper: #f3ede0;
+	--ink: #141211;
+	--ink-muted: #5c544b;
+	--night: #141211;
+	--on-night: #f3ede0;
+	--scarlet: #d2161e;
+	--scarlet-ink: #a8101a;
+	--on-scarlet: #fff8ee;
+	--gold: #f2b705;
+	--on-gold: #141211;
+	--green: #0b6b35;
+	--on-green: #fff8ee;
+	--focus: #141211;
+	--shadow-offset: 6px 6px 0 #141211;
+	--shadow-press: 2px 2px 0 #141211;
+}
+[data-theme="dark"] {
+	--paper: #141110;
+	--ink: #f3ede0;
+	--ink-muted: #b0a798;
+	--night: #050404;
+	--on-night: #f3ede0;
+	--scarlet: #d2161e;
+	--scarlet-ink: #ff6b66;
+	--on-scarlet: #fff8ee;
+	--gold: #f2b705;
+	--on-gold: #141211;
+	--green: #0b6b35;
+	--on-green: #fff8ee;
+	--focus: #f2b705;
+	--shadow-offset: 6px 6px 0 #d2161e;
+	--shadow-press: 2px 2px 0 #d2161e;
+}
+:root {
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-4: 16px;
+	--space-8: 32px;
+	--radius-none: 0;
+	--radius-sm: 2px;
+	--radius-pill: 999px;
+	--border-hard: 3px;
+	--tilt-left: -2deg;
+	--tilt-right: 1.5deg;
+	--tilt-sticker: -8deg;
+	--halftone: 0.16;
+	--font-display: Anton, Impact, "Arial Narrow Bold", sans-serif;
+	--font-body: Archivo, "Helvetica Neue", Arial, sans-serif;
+	--font-stamp: "Special Elite", "Courier New", monospace;
+}
+.display {
+	font-family: var(--font-display);
+	font-size: 96px;
+	line-height: 0.92;
+	font-weight: 400;
+	letter-spacing: 0.5px;
+}
+.headline {
+	font-family: var(--font-display);
+	font-size: 48px;
+	line-height: 1;
+	font-weight: 400;
+	letter-spacing: 0.5px;
+}
+.title {
+	font-family: var(--font-display);
+	font-size: 28px;
+	line-height: 1.1;
+	font-weight: 400;
+	letter-spacing: 0.5px;
+}
+.tape {
+	font-family: var(--font-display);
+	font-size: 22px;
+	line-height: 1.1;
+	font-weight: 400;
+	letter-spacing: 1px;
+}
+.body {
+	font-family: var(--font-body);
+	font-size: 17px;
+	line-height: 26px;
+	font-weight: 400;
+}
+.body-small {
+	font-family: var(--font-body);
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 400;
+}
+.button {
+	font-family: var(--font-body);
+	font-size: 15px;
+	line-height: 20px;
+	font-weight: 800;
+	letter-spacing: 1px;
+}
+.stamp {
+	font-family: var(--font-stamp);
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: 400;
+	letter-spacing: 0.5px;
+}

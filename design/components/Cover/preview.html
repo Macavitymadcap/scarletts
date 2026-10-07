@@ -1,0 +1,55 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;800&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; background: var(--paper, #f3ede0); }
+  .cover { position: relative; width: 960px; height: 288px; overflow: hidden; background: var(--paper, #f3ede0); }
+  svg { position: absolute; left: 0; top: 0; }
+  .scarlet { fill: var(--scarlet, #d2161e); }
+  .gold { fill: var(--gold, #f2b705); }
+  .green { fill: var(--green, #0b6b35); }
+  .ink { fill: var(--ink, #141211); }
+  .paper { fill: var(--paper, #f3ede0); }
+  .sq { rx: var(--radius-none, 0); }
+  .text { position: absolute; left: 32px; bottom: 32px; max-width: 440px; }
+  .name { margin: 0; font-family: var(--font-display, Anton, Impact, sans-serif); font-size: 72px; line-height: .92; letter-spacing: .5px; text-transform: uppercase; color: var(--ink, #141211); font-weight: 400; }
+  .tag { margin: 8px 0 0; font-family: var(--font-body, Archivo, Arial, sans-serif); font-size: 14px; line-height: 20px; color: var(--ink-muted, #5c544b); }
+</style>
+</head>
+<body>
+<div class="cover">
+  <svg width="960" height="288" viewBox="0 0 960 288" aria-hidden="true">
+    <!--
+      blocks: scarlet 224x288 slab (7 x space-8 wide), gold 160x96 and green 96x96 (multiples of space-8); ink via the checker; paper is the ground
+      arrangement: flush modular grid, every edge butted tight, slab and checker bleeding off the top, bottom and right like a poster trimmed to the edge
+      pattern: checker at space-8 (32px), ink on paper; "loud, bold poster type" plus the README's 2 Tone checkerboard
+      scales: space-8 pitch and block sizes, radius-none square corners, no gaps
+    -->
+    <rect class="scarlet sq" x="480" y="0" width="224" height="288"/>
+    <g id="checker"></g>
+    <rect class="gold sq" x="704" y="192" width="160" height="96"/>
+    <rect class="green sq" x="864" y="192" width="96" height="96"/>
+  </svg>
+  <div class="text">
+    <h1 class="name">Scarletts</h1>
+    <p class="tag">Ska and dance music from Bristol.</p>
+  </div>
+</div>
+<script>
+  const g = document.getElementById('checker');
+  const ns = 'http://www.w3.org/2000/svg';
+  for (let r = 0; r < 6; r++) for (let c = 0; c < 8; c++) {
+    if (((r + c) % 2 + 2) % 2) continue;
+    const s = document.createElementNS(ns, 'rect');
+    s.setAttribute('class', 'ink sq');
+    s.setAttribute('x', 704 + c * 32); s.setAttribute('y', r * 32);
+    s.setAttribute('width', 32); s.setAttribute('height', 32);
+    g.appendChild(s);
+  }
+</script>
+</body>
+</html>

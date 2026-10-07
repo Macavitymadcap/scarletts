@@ -1,0 +1,82 @@
+<!-- @dsCard group="Pages" height=1700 width=390 page subtitle="Video page mock-up at phone width" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Video page mock-up</title>
+<style>
+  body { margin: 0; overflow-x: hidden; }
+  .page { min-height: 100vh; background: var(--paper); color: var(--ink); display: flex; flex-direction: column; }
+  .masthead { background: var(--night); color: var(--on-night); padding: var(--space-8) var(--space-4); border-bottom: var(--border-hard) solid var(--ink); }
+  .masthead__kicker { margin: 0 0 var(--space-2); font-family: var(--font-stamp); font-size: 14px; line-height: 18px; letter-spacing: .5px; text-transform: uppercase; }
+  .masthead__title { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 48px; line-height: 1; letter-spacing: .5px; text-transform: uppercase; }
+  .masthead__title mark { background: var(--scarlet); color: var(--on-scarlet); padding: 0 var(--space-2); }
+  .masthead__intro { margin: var(--space-4) 0 0; font-size: 17px; line-height: 26px; max-width: 52ch; }
+  .section { padding: var(--space-8) var(--space-4); }
+  .section__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4); margin-bottom: var(--space-4); }
+  .section__title { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 28px; line-height: 1.1; letter-spacing: .5px; text-transform: uppercase; }
+  .section__meta { margin: 0; font-family: var(--font-stamp); font-size: 14px; line-height: 18px; color: var(--ink-muted); text-transform: uppercase; }
+  .footer { margin-top: auto; background: var(--night); color: var(--on-night); padding: var(--space-8) var(--space-4); display: grid; gap: var(--space-4); }
+  .footer a { color: var(--on-night); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 15px; }
+  .footer a:focus-visible { outline: 3px solid var(--on-night); outline-offset: 3px; }
+  .footer__links { display: flex; flex-wrap: wrap; gap: var(--space-4); margin: 0; padding: 0; list-style: none; }
+  .footer__mail { font-family: var(--font-stamp); font-size: 14px; margin: 0; }
+  .footer__mail a { font-family: var(--font-stamp); font-weight: 400; text-transform: none; letter-spacing: .5px; }
+  @media (min-width: 800px) {
+    .masthead { padding: var(--space-8); }
+    .masthead__title { font-size: 96px; line-height: .92; }
+    .section { padding: var(--space-8); }
+    .footer { padding-left: var(--space-8); padding-right: var(--space-8); grid-template-columns: 1fr auto; align-items: center; }
+  }
+  .frame { position: relative; aspect-ratio: 16 / 9; background: var(--night); color: var(--on-night); border: var(--border-hard) solid var(--ink); display: grid; place-items: center; text-align: center; }
+  .frame--feature { box-shadow: var(--shadow-offset); }
+  .frame__play { width: 0; height: 0; border-style: solid; border-width: 28px 0 28px 48px; border-color: transparent transparent transparent var(--scarlet); margin: 0 auto var(--space-4); }
+  .frame--small .frame__play { border-width: 18px 0 18px 30px; margin-bottom: var(--space-2); }
+  .frame p { margin: 0; font-family: var(--font-stamp); font-size: 14px; line-height: 20px; text-transform: uppercase; letter-spacing: .5px; }
+  .caption { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-1) var(--space-4); margin-top: var(--space-4); }
+  .caption h3 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 28px; line-height: 1.1; letter-spacing: .5px; text-transform: uppercase; }
+  .caption--small h3 { font-size: 22px; }
+  .caption span { font-family: var(--font-stamp); font-size: 14px; line-height: 18px; color: var(--ink-muted); text-transform: uppercase; }
+  .feature { max-width: 960px; }
+  .more { display: grid; gap: var(--space-8) var(--space-4); grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .fine { margin: var(--space-8) 0 0; font-size: 14px; line-height: 20px; color: var(--ink-muted); }
+  .fine a { color: var(--scarlet-ink); font-weight: 800; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var S = window.Scarletts, h = React.createElement;
+  var footer = () => h('footer', {className: 'footer'},
+    h('ul', {className: 'footer__links'},
+      h('li', null, h('a', {href: '#'}, 'Instagram')),
+      h('li', null, h('a', {href: '#'}, 'YouTube')),
+      h('li', null, h('a', {href: '#'}, 'Bandcamp'))),
+    h('p', {className: 'footer__mail'}, 'Bookings: ', h('a', {href: 'mailto:bookings@scarletts.uk'}, 'bookings@scarletts.uk')));
+  var nav = (current) => h(S.Nav, {links: [['Home', '#'], ['Bio', '#bio'], ['Photos', '#photos'], ['Music', '#music'], ['Video', '#video']].map((l) => ({label: l[0], href: l[1], current: l[0] === current}))});
+  var frame = (small) => h('div', {className: 'frame ' + (small ? 'frame--small' : 'frame--feature')},
+    h('div', null, h('div', {className: 'frame__play', 'aria-hidden': 'true'}), h('p', null, 'YouTube player', h('br'), 'youtube-nocookie.com embed')));
+  var page = h('div', {className: 'page'},
+    h(S.Tricolour), nav('Video'),
+    h('header', {className: 'masthead'},
+      h('p', {className: 'masthead__kicker'}, 'Video / Bristol'),
+      h('h1', {className: 'masthead__title'}, 'Watch ', h('mark', null, 'us')),
+      h('p', {className: 'masthead__intro'}, 'Live sets and videos. Nothing loads from YouTube until you press play.')),
+    h('section', {className: 'section', 'aria-labelledby': 'latest'},
+      h('div', {className: 'section__head'},
+        h('h2', {className: 'section__title', id: 'latest'}, 'Latest'),
+        h(S.Tape, {tone: 'scarlet', tilt: 'right'}, 'New')),
+      h('div', {className: 'feature'}, frame(false),
+        h('div', {className: 'caption'}, h('h3', null, 'Video title'), h('span', null, 'Live / Month year')))),
+    h(S.Checkerboard, {rows: 1}),
+    h('section', {className: 'section', 'aria-labelledby': 'more'},
+      h('div', {className: 'section__head'},
+        h('h2', {className: 'section__title', id: 'more'}, 'More videos'),
+        h('p', {className: 'section__meta'}, '2 videos')),
+      h('div', {className: 'more'},
+        h('div', null, frame(true), h('div', {className: 'caption caption--small'}, h('h3', null, 'Video title two'), h('span', null, 'Month year'))),
+        h('div', null, frame(true), h('div', {className: 'caption caption--small'}, h('h3', null, 'Video title three'), h('span', null, 'Month year')))),
+      h('p', {className: 'fine'}, 'More on ', h('a', {href: '#'}, 'our YouTube channel'), '.')),
+    footer());
+  ReactDOM.createRoot(document.getElementById('root')).render(page);
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+/* Scarletts design tokens, generated from the design system's tokens.json.
+   Paper is the light theme and Night the dark theme; Night follows the
+   visitor's system setting, and data-theme on <html> can force either. */
+
+:root {
+	color-scheme: light;
+	--font-display: Anton, Impact, "Arial Narrow Bold", sans-serif;
+	--font-body: Archivo, "Helvetica Neue", Arial, sans-serif;
+	--font-stamp: "Special Elite", "Courier New", monospace;
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-4: 16px;
+	--space-8: 32px;
+	--radius-none: 0;
+	--radius-sm: 2px;
+	--radius-pill: 999px;
+	--border-hard: 3px;
+	--tilt-left: -2deg;
+	--tilt-right: 1.5deg;
+	--tilt-sticker: -8deg;
+	--halftone: 0.16;
+	--paper: #f3ede0;
+	--ink: #141211;
+	--ink-muted: #5c544b;
+	--night: #141211;
+	--on-night: #f3ede0;
+	--scarlet: #d2161e;
+	--scarlet-ink: #a8101a;
+	--on-scarlet: #fff8ee;
+	--gold: #f2b705;
+	--on-gold: #141211;
+	--green: #0b6b35;
+	--on-green: #fff8ee;
+	--focus: #141211;
+	--shadow-offset: 6px 6px 0 #141211;
+	--shadow-press: 2px 2px 0 #141211;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		color-scheme: dark;
+		--paper: #141110;
+		--ink: #f3ede0;
+		--ink-muted: #b0a798;
+		--night: #050404;
+		--on-night: #f3ede0;
+		--scarlet: #d2161e;
+		--scarlet-ink: #ff6b66;
+		--on-scarlet: #fff8ee;
+		--gold: #f2b705;
+		--on-gold: #141211;
+		--green: #0b6b35;
+		--on-green: #fff8ee;
+		--focus: #f2b705;
+		--shadow-offset: 6px 6px 0 #d2161e;
+		--shadow-press: 2px 2px 0 #d2161e;
+	}
+}
+
+:root[data-theme="dark"] {
+	color-scheme: dark;
+	--paper: #141110;
+	--ink: #f3ede0;
+	--ink-muted: #b0a798;
+	--night: #050404;
+	--on-night: #f3ede0;
+	--scarlet: #d2161e;
+	--scarlet-ink: #ff6b66;
+	--on-scarlet: #fff8ee;
+	--gold: #f2b705;
+	--on-gold: #141211;
+	--green: #0b6b35;
+	--on-green: #fff8ee;
+	--focus: #f2b705;
+	--shadow-offset: 6px 6px 0 #d2161e;
+	--shadow-press: 2px 2px 0 #d2161e;
+}
