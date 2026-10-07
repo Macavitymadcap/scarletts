@@ -24,7 +24,7 @@ document says, use the search bar at the top of the dashboard.
 ## Current content
 
 | Content | Status |
-|---|---|
+| ------- | ------ |
 | Photos | Band members' own mobile phone photos; the band holds the rights |
 | Audio | None yet; recordings expected from a session the week after this document |
 | Video | None yet |
@@ -38,7 +38,7 @@ video page once there is a first video on YouTube.
 ## Summary
 
 | Concern | Choice | Cost |
-|---|---|---|
+| ------- | ------ | ---- |
 | Domain | `scarletts.uk` via Cloudflare Registrar | About $5 to $6 a year |
 | DNS | Cloudflare (required by Cloudflare Registrar) | Free |
 | Pages | Cloudflare Worker with static assets | Free |
@@ -135,7 +135,7 @@ directly, for example to draw a waveform with the Web Audio API.
 ## Technology stack
 
 | Layer | Choice |
-|---|---|
+| ----- | ------ |
 | Runtime and build | Bun |
 | Templating | JSX via `hono/jsx`, rendered to static HTML at build time |
 | Styling | Open Props and plain CSS |
@@ -153,28 +153,47 @@ work unchanged inside a Hono Worker when the first dynamic route arrives.
 ## Repository layout
 
 ```text
-scarletts/
-├── public/                 copied verbatim into dist/
-│   ├── favicon.svg
-│   ├── robots.txt
-│   └── 404.html
-├── src/
-│   ├── build.tsx           renders every page into dist/
-│   ├── components/
-│   │   ├── Layout.tsx
-│   │   ├── Nav.tsx
-│   │   └── PhotoGrid.tsx
-│   ├── content/
-│   │   ├── media.ts        MEDIA_BASE_URL constant
-│   │   └── photos.ts       typed list of photos in R2
-│   ├── pages/
-│   │   ├── index.tsx
-│   │   ├── bio.tsx
-│   │   └── photos.tsx
-│   └── styles/
-│       └── main.css
-├── dist/                   build output; git-ignored
+.
+├── biome.json
+├── bun.lock
+├── design/                 Design system
+├── docs/                   Documentation, like this file
 ├── package.json
+├── public
+│   ├── favicon.svg
+│   └── robots.txt
+├── README.md
+├── scripts
+│   ├── prepare-photos.ts
+│   └── upload-media.ts
+├── src
+│   ├── build.tsx
+│   ├── components
+│   │   ├── Footer.tsx
+│   │   ├── GigCard.tsx
+│   │   ├── Layout.tsx
+│   │   ├── LineUp.tsx
+│   │   ├── Nav.tsx
+│   │   ├── Photo.tsx
+│   │   └── ui.tsx
+│   ├── content
+│   │   ├── bio.ts
+│   │   ├── gigs.ts
+│   │   ├── media.ts
+│   │   └── photos.ts
+│   ├── pages
+│   │   ├── bio.tsx
+│   │   ├── home.tsx
+│   │   ├── not-found.tsx
+│   │   └── photos.tsx
+│   ├── site.ts             Site based information
+│   └── styles
+│       ├── components.css
+│       ├── pages.css
+│       └── tokens.css
+├── test
+│   ├── gigs.test.ts
+│   └── pages.test.tsx
 ├── tsconfig.json
 └── wrangler.jsonc
 ```
@@ -195,7 +214,7 @@ Bun reads the JSX settings from `tsconfig.json`.
     "module": "ESNext",
     "target": "ESNext",
     "moduleResolution": "bundler",
-    "types": ["bun-types"]
+    "types": ["bun"]
   }
 }
 ```
@@ -294,7 +313,7 @@ certificate for `scarletts.uk` on deploy.
 ### At launch
 
 | Route | Content |
-|---|---|
+| ----- | ------- |
 | `/` | Band name, one-line pitch, a lead photo, links to socials and email |
 | `/bio` | Who the band are, line-up, Bristol, influences, a photo |
 | `/photos` | Grid of the band's photos |
@@ -302,7 +321,7 @@ certificate for `scarletts.uk` on deploy.
 ### After the recording session
 
 | Route | Content |
-|---|---|
+| ----- | ------- |
 | `/music` | Track list with `<audio controls preload="none">` per track, plus the Bandcamp embed |
 
 `preload="none"` stops the browser downloading every track when the music
@@ -311,7 +330,7 @@ page opens.
 ### Once there is video
 
 | Route | Content |
-|---|---|
+| ----- | ------- |
 | `/video` | YouTube embeds using `youtube-nocookie.com` |
 
 The privacy-enhanced YouTube domain avoids setting tracking cookies until a
@@ -366,23 +385,6 @@ bunx wrangler r2 object put scarletts-media/photos/bio/band-01.webp \
 `--remote` matters: without it, recent versions of Wrangler write to a local
 simulated bucket used by `wrangler dev`. Use `audio/mpeg` as the content type
 for MP3s.
-
-## External accounts
-
-### YouTube
-
-A Gmail address is a Google account, so the band can use YouTube with it,
-but a Google account does not have a YouTube channel until one is created.
-Sign in to YouTube as `scarletts.band.music@gmail.com`, open the account
-menu, and choose Create a channel, naming it Scarletts. Claim a handle such
-as `@scarletts` (or the nearest available) at the same time, since handles
-are first come, first served.
-
-### Bandcamp
-
-Bandcamp is a separate sign-up as an artist, using the band Gmail address.
-Create the page before the recordings are ready so the name and URL are
-secured; `scarletts.bandcamp.com` if available.
 
 ## Setup walkthrough
 

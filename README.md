@@ -11,7 +11,7 @@ served from the `scarletts-media` R2 bucket at `media.scarletts.uk`.
 ## Commands
 
 | Command | What it does |
-|---|---|
+| ------- | ------------ |
 | `bun install` | Installs dependencies |
 | `bun run build` | Renders the site into `dist/` |
 | `bun run dev` | Builds, then serves `dist/` locally as Cloudflare would |
@@ -26,7 +26,7 @@ Run `bunx wrangler login` once before deploying or uploading.
 ## Structure
 
 | Path | Contents |
-|---|---|
+| ---- | -------- |
 | `src/site.ts` | Band name, pitch, bookings address, navigation and social links |
 | `src/content/` | Typed content: bio, photos, gigs, and the media base URL |
 | `src/components/` | Layout and design system components |
@@ -58,8 +58,7 @@ upcoming gig; past gigs drop off at build time, so redeploy after each gig.
 
 ### Photos
 
-1. Put originals in `media/originals/gigs/` or `media/originals/band/`. The
-   `media/` folder is git-ignored.
+1. Put originals in `media/originals/gigs/` or `media/originals/band/`.
 2. Run `bun run photos:prepare`. It turns each photo upright, strips all
    metadata (including GPS location), and writes 1600 px and 800 px WebP
    versions to `media/out/`.
