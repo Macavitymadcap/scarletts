@@ -1,8 +1,8 @@
-import type { Child } from "hono/jsx";
-import { type Route, site } from "../site";
-import { Footer } from "./Footer";
-import { Nav } from "./Nav";
-import { Checkerboard, Tricolour } from "./ui";
+import type { Child } from 'hono/jsx';
+import { type Route, site } from '../site';
+import { Footer } from './Footer';
+import { Nav } from './Nav';
+import { Checkerboard, Tricolour } from './ui';
 
 export type LayoutProps = {
 	title?: string; // omitted on the home page
@@ -13,7 +13,7 @@ export type LayoutProps = {
 };
 
 const FONTS =
-	"https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;800&family=Special+Elite&display=swap";
+	'https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;800&family=Special+Elite&display=swap';
 
 export const Layout = ({
 	title,
@@ -26,7 +26,7 @@ export const Layout = ({
 		? `${title} | ${site.name}`
 		: `${site.name} | Ska from Bristol`;
 	// The 404 page has no route, so it gets no canonical or og:url.
-	const canonical = current && `${site.url}${current === "/" ? "/" : current}`;
+	const canonical = current && `${site.url}${current === '/' ? '/' : current}`;
 
 	return (
 		<html lang="en-GB">

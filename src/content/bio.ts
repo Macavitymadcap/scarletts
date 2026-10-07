@@ -1,19 +1,19 @@
 export type Member = { name: string; role: string };
 
 export const bio = {
-	lede: "Ska and other music you can dance to, out of Bristol.",
-	// TODO: replace with the real story.
+	lede: 'Ska and other music you can dance to, out of Bristol.',
 	paragraphs: [
-		"[How the band started, two or three sentences.]",
-		"[What a Scarletts gig is like, and where we play.]",
-		"[What is coming next, such as the new recordings.]",
+		'Scarletts found themselves in the same corner of Bristol after extensively circulating festivals for decades. Through their combine love of good times, basslines, brass and debauchery, they created a sound of their own.',
+		'Expect bouncy, catchy beats, steamy guitar riffs, soulful vocals, blusey grooves, honest lyrics and brass hooks to get your knees up',
+		'Watch this space for gig announcements, new recordings and other shenanigans in the future.',
 	],
-	// TODO: the real line-up. The first member gets the scarlet tile.
 	members: [
-		{ name: "Member one", role: "Instrument" },
-		{ name: "Member two", role: "Instrument" },
-		{ name: "Member three", role: "Instrument" },
+		{ name: 'Cini', role: 'Vocals' },
+		{ name: 'Liv', role: 'Trumpet & Vocals' },
+		{ name: 'Paul', role: 'Guitar' },
+		{ name: 'Isaac', role: 'Saxophone & Keys' },
+		{ name: 'Dan', role: 'Bass' },
+		{ name: 'Callum', role: 'Drums' },
 	] satisfies Member[],
-	// TODO: the real influences.
-	influences: ["Influence one", "Influence two", "Influence three"],
+	influences: ["Mungo's Hi Fi", 'No Doubt', 'Madness'],
 };

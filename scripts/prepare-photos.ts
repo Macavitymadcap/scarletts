@@ -8,23 +8,23 @@
 // (including GPS location) is dropped; sharp writes none unless asked to.
 // Prints entries to paste into src/content/photos.ts.
 
-import { mkdir, readdir } from "node:fs/promises";
-import { basename, extname, join } from "node:path";
-import sharp from "sharp";
+import { mkdir, readdir } from 'node:fs/promises';
+import { basename, extname, join } from 'node:path';
+import sharp from 'sharp';
 
-const ORIGINALS = "media/originals";
-const OUT = "media/out/photos";
+const ORIGINALS = 'media/originals';
+const OUT = 'media/out/photos';
 const SIZES = [
-	{ width: 1600, suffix: "" },
-	{ width: 800, suffix: "-800" },
+	{ width: 1600, suffix: '' },
+	{ width: 800, suffix: '-800' },
 ] as const;
 const IMAGE = /\.(jpe?g|png|webp|tiff?)$/i;
 
 const slug = (name: string) =>
 	name
 		.toLowerCase()
-		.replace(/[^a-z0-9]+/g, "-")
-		.replace(/^-|-$/g, "");
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/^-|-$/g, '');
 
 const entries: string[] = [];
 
@@ -46,7 +46,7 @@ for (const group of await readdir(ORIGINALS)) {
 				.resize({ width: size.width, withoutEnlargement: true })
 				.webp({ quality: 80 })
 				.toFile(join(OUT, group, `${name}${size.suffix}.webp`));
-			if (size.suffix === "") full = { width: info.width, height: info.height };
+			if (size.suffix === '') full = { width: info.width, height: info.height };
 		}
 
 		entries.push(
@@ -56,4 +56,4 @@ for (const group of await readdir(ORIGINALS)) {
 	}
 }
 
-console.log(entries.join("\n"));
+console.log(entries.join('\n'));

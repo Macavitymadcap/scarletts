@@ -1,4 +1,4 @@
-import { navLinks, type Route, site } from "../site";
+import { navLinks, type Route, site } from '../site';
 
 export const Nav = ({ current }: { current?: Route }) => (
 	<nav class="sc-nav" aria-label="Main">
@@ -10,7 +10,7 @@ export const Nav = ({ current }: { current?: Route }) => (
 				<li>
 					<a
 						href={link.href}
-						aria-current={link.href === current ? "page" : undefined}
+						aria-current={link.href === current ? 'page' : undefined}
 					>
 						{link.label}
 					</a>

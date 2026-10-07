@@ -1,4 +1,4 @@
-import type { Member } from "../content/bio";
+import type { Member } from '../content/bio';
 
 // Flush tiles, one per band member: role in stamp type above the name.
 export const LineUp = ({ members }: { members: Member[] }) => (
