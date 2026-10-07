@@ -388,36 +388,36 @@ secured; `scarletts.bandcamp.com` if available.
 
 Do these once, in order.
 
-1. Create a Cloudflare account at `https://dash.cloudflare.com/sign-up` using
+1. [✅] Create a Cloudflare account at `https://dash.cloudflare.com/sign-up` using
    the band Gmail address, verify it (Registrar requires a verified address),
    and enable two-factor authentication. Using the band address keeps the
    domain with the band rather than with one person.
-2. Register the domain. Go to Domain Registration, Register Domains,
+2. [✅] Register the domain. Go to Domain Registration, Register Domains,
    search for `scarletts.uk`, select Purchase, choose the term, and enter
    contact details. Contact details are redacted from public WHOIS where the
    registry allows. The zone and Cloudflare nameservers are set up for you.
-3. Enable DNSSEC. Open the zone, go to DNS, Settings, and enable DNSSEC.
-4. Enable R2. Go to R2 Object Storage, add a payment method when prompted,
+3. [✅] Enable DNSSEC. Open the zone, go to DNS, Settings, and enable DNSSEC.
+4. [✅] Enable R2. Go to R2 Object Storage, add a payment method when prompted,
    and create a bucket named `scarletts-media`. Avoid dots in the name.
-5. Connect the media domain. In the bucket, go to Settings, Custom
+5. [✅] Connect the media domain. In the bucket, go to Settings, Custom
    Domains, and add `media.scarletts.uk`. Leave the `r2.dev` public URL
    disabled; it is rate limited and intended for testing only.
-6. Log Wrangler in. In the repository, run `bunx wrangler login`; it opens a
+6. [✅] Log Wrangler in. In the repository, run `bunx wrangler login`; it opens a
    browser to authorise your account.
-7. Deploy. Run `bun run deploy`. The first deploy creates the Worker named
+7. [✅] Deploy. Run `bun run deploy`. The first deploy creates the Worker named
    `scarletts` and attaches `scarletts.uk`. It appears under Workers &
    Pages.
-8. Redirect `www`. In the zone, go to Rules and create a redirect rule from
+8. [✅] Redirect `www`. In the zone, go to Rules and create a redirect rule from
    `www.scarletts.uk` to `https://scarletts.uk` (Cloudflare offers a
    ready-made template for this). The rule needs a proxied DNS record for
    `www` to exist; the template prompts for one if it is missing.
-9. Set up email. In the zone, go to Email Routing and select Add records and
+9. [✅] Set up email. In the zone, go to Email Routing and select Add records and
    enable. Under Routing rules, create the custom address
    `bookings@scarletts.uk` with destination
    `scarletts.band.music@gmail.com`, then click the verification link
    Cloudflare sends to that inbox. Every bandmate with access to the Gmail
    account sees booking enquiries.
-10. Add analytics. Cloudflare Web Analytics is free and does not use cookies,
+10. [✅] Add analytics. Cloudflare Web Analytics is free and does not use cookies,
     so no cookie banner is needed. It is under Analytics & Logs, Web
     Analytics.
 
@@ -455,13 +455,13 @@ once the setup has settled.
 
 ## Next steps
 
-1. Create the YouTube channel and Bandcamp page to secure the names.
-2. Complete setup steps 1 to 6: Cloudflare account, domain, DNSSEC, R2 and
+1. [✅] Create the YouTube channel and Bandcamp page to secure the names.
+2. [✅] Complete setup steps 1 to 6: Cloudflare account, domain, DNSSEC, R2 and
    the media domain.
-3. Scaffold the repository and deploy a placeholder home page to prove the
+3. [✅] Scaffold the repository and deploy a placeholder home page to prove the
    pipeline end to end.
-4. Write the bio, then strip, resize and upload the photos.
-5. Build the home, bio and photos pages and launch.
-6. Set up Email Routing, the `www` redirect and analytics.
-7. After the recording session, add the music page, the persistent player
+4. [] Write the bio, then strip, resize and upload the photos.
+5. [✅] Build the home, bio and photos pages and launch.
+6. [✅] Set up Email Routing, the `www` redirect and analytics.
+7. [] After the recording session, add the music page, the persistent player
    and the Bandcamp embed.
