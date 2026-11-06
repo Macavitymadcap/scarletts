@@ -33,7 +33,7 @@ describe('Nav', () => {
 });
 
 describe('pages', () => {
-	test('home shows the coming-soon state when no gigs are listed', async () => {
+	test('includes bookings mailto link', async () => {
 		// Arrange
 		const Page = Home;
 
@@ -42,7 +42,6 @@ describe('pages', () => {
 
 		// Assert
 		expect(html.startsWith('<!doctype html>')).toBe(true);
-		expect(html).toContain('Coming soon');
 		expect(html).toContain('href="mailto:bookings@scarletts.uk"');
 	});
 

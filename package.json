@@ -4,7 +4,8 @@
 	"type": "module",
 	"scripts": {
 		"build": "bun src/build.tsx",
-		"dev": "LOCAL_MEDIA=1 bun run build && bunx wrangler dev",
+		"dev": "bun run build && bunx wrangler dev",
+		"dev:local": "LOCAL_MEDIA=1 bun run dev",
 		"deploy": "bun run build && bunx wrangler deploy",
 		"photos:prepare": "bun scripts/prepare-photos.ts",
 		"photos:upload": "bun scripts/upload-media.ts",

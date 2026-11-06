@@ -3,7 +3,6 @@ import { Button, Tape } from './ui';
 
 export const GigCard = ({ gig }: { gig: Gig }) => {
 	const { weekday, day, month } = gigDateParts(gig.date);
-	const status = gig.status ?? 'on-sale';
 
 	return (
 		<article class="sc-gig">
@@ -17,17 +16,15 @@ export const GigCard = ({ gig }: { gig: Gig }) => {
 				<p class="sc-gig__city">{gig.city}</p>
 				{gig.details && <p class="sc-gig__details">{gig.details}</p>}
 				<div class="sc-gig__action">
-					{status === 'sold-out' ? (
+					{gig.ticket?.status === 'on-sale' ? (
+						<Button href={gig.ticket.href}>Get tickets</Button>
+					) : gig.ticket?.status ==='sold-out' ? (
 						<Tape tone="ink" tilt="left">
 							Sold out
 						</Tape>
-					) : status === 'free' ? (
-						<Tape tone="scarlet" tilt="right">
-							Free entry
-						</Tape>
-					) : gig.ticketsHref ? (
-						<Button href={gig.ticketsHref}>Get tickets</Button>
-					) : null}
+					) : gig.eventHref ? (
+						<Button href={gig.eventHref}>Event page</Button>
+					) : null }
 				</div>
 			</div>
 		</article>
