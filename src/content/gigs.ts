@@ -19,7 +19,7 @@ export const gigs: Gig[] = [
 		date: '2026-11-19',
 		venue: 'Trinity Centre',
 		city: 'Bristol',
-		details: 'Supporting Oh My God! It\s the Church. Doors at 19:00',
+		details: 'Supporting Oh My God! It\s The Church. Doors at 19:00',
 		ticket: {
 			status: 'on-sale',
 			href: 'https://hdfst.uk/e150608'
@@ -27,9 +27,9 @@ export const gigs: Gig[] = [
 	},
 	{
 		date: '2026-11-28',
-		venue: 'The Stillage',
+		venue: 'The Old Stillage',
 		city: 'Bristol',
-		details: 'Girls Are Loud D&B night',
+		details: 'Girls Are Loud Drum & Bass night',
 		eventHref: 'my lovely link',
 	},
 ];
