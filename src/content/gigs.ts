@@ -16,21 +16,11 @@ export type Gig = {
 
 export const gigs: Gig[] = [
 	{
-		date: '2026-11-19',
-		venue: 'Trinity Centre',
-		city: 'Bristol',
-		details: 'Supporting Oh My God! It\s The Church. Doors at 19:00',
-		ticket: {
-			status: 'on-sale',
-			href: 'https://hdfst.uk/e150608'
-		}
-	},
-	{
 		date: '2026-11-28',
 		venue: 'The Old Stillage',
 		city: 'Bristol',
 		details: 'Girls Are Loud Drum & Bass night',
-		eventHref: 'my lovely link',
+		eventHref: 'https://www.instagram.com/reel/Dfu1hj_M7lB/?dmpr=NWJieWJ5cDQzYmV2',
 	},
 ];
 
