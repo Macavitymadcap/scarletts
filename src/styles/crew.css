@@ -1,0 +1,284 @@
+/* The band-only crew area at /crew. Every value comes from tokens.css. */
+
+.crew-nav__member {
+	margin: 0;
+	font-family: var(--font-stamp);
+	font-size: 14px;
+	line-height: 18px;
+}
+
+.crew-main {
+	padding: var(--space-8) var(--space-4);
+	gap: var(--space-4);
+}
+
+.crew-main :focus-visible {
+	outline: 3px solid var(--focus);
+	outline-offset: 3px;
+}
+
+.crew-main button:not(.sc-btn) {
+	font: inherit;
+	cursor: pointer;
+}
+
+/* Month view */
+.crew-month__head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: var(--space-2) var(--space-4);
+}
+
+.crew-month__title,
+.crew-form__title {
+	margin: 0;
+	font-family: var(--font-display);
+	font-weight: 400;
+	font-size: 40px;
+	line-height: 1.1;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+}
+
+.crew-month__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-4);
+	margin: var(--space-4) 0;
+}
+
+.crew-weekdays {
+	display: none;
+}
+
+.crew-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-2);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.crew-day {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	padding: var(--space-2);
+	border: var(--border-hard) solid var(--ink);
+	background: var(--paper);
+	font-size: 15px;
+	line-height: 20px;
+}
+
+/* On phones the grid is a list, so days from the neighbouring months only add noise. */
+.crew-day--outside {
+	display: none;
+}
+
+.crew-day--past {
+	color: var(--ink-muted);
+}
+
+.crew-day--today {
+	box-shadow: var(--shadow-offset);
+}
+
+.crew-day__date {
+	margin: 0;
+	font-family: var(--font-stamp);
+	text-transform: uppercase;
+}
+
+.crew-day--today .crew-day__date {
+	color: var(--scarlet-ink);
+	font-weight: 800;
+}
+
+.crew-day__events {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.crew-event {
+	display: block;
+	padding: 2px var(--space-1);
+	border-left: var(--border-hard) solid var(--ink);
+	color: var(--ink);
+	text-decoration: none;
+	overflow-wrap: anywhere;
+}
+.crew-event:hover {
+	text-decoration: underline;
+}
+.crew-event--gig {
+	background: var(--scarlet);
+	color: var(--on-scarlet);
+	border-left-color: var(--gold);
+}
+.crew-event--rehearsal {
+	border-left-color: var(--green);
+}
+.crew-event__time {
+	font-weight: 800;
+}
+.crew-event__public {
+	font-family: var(--font-stamp);
+	font-size: 13px;
+}
+
+.crew-day__out {
+	margin: 0;
+	padding: 2px var(--space-1);
+	background: var(--gold);
+	color: var(--on-gold);
+	font-size: 13px;
+	font-weight: 800;
+}
+
+.crew-day__actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-2);
+	margin-top: auto;
+	font-size: 13px;
+}
+.crew-day__actions form {
+	margin: 0;
+}
+.crew-day__actions button {
+	padding: 0 var(--space-1);
+	border: 2px solid var(--ink);
+	background: var(--paper);
+	color: var(--ink);
+	font-size: 13px;
+}
+.crew-day__actions button[aria-pressed="true"] {
+	background: var(--gold);
+	color: var(--on-gold);
+}
+
+@media (min-width: 900px) {
+	.crew-weekdays,
+	.crew-grid {
+		grid-template-columns: repeat(7, minmax(0, 1fr));
+	}
+	.crew-weekdays {
+		display: grid;
+		gap: var(--space-2);
+		font-family: var(--font-stamp);
+		text-transform: uppercase;
+		text-align: center;
+	}
+	.crew-day {
+		min-height: 140px;
+	}
+	.crew-day--outside {
+		display: flex;
+		opacity: 0.5;
+	}
+	.crew-day__weekday {
+		display: none;
+	}
+}
+
+/* Event and settings forms */
+.crew-form {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+	max-width: 40rem;
+}
+.crew-form__back,
+.crew-form__meta {
+	margin: 0;
+}
+.crew-form__meta {
+	color: var(--ink-muted);
+}
+.crew-form fieldset {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+	margin: 0 0 var(--space-4);
+	padding: var(--space-4);
+	border: var(--border-hard) solid var(--ink);
+}
+.crew-form legend {
+	padding: 0 var(--space-2);
+	font-family: var(--font-stamp);
+	text-transform: uppercase;
+}
+.crew-field,
+.crew-feed {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	margin: 0;
+}
+.crew-field label,
+.crew-feed label {
+	font-weight: 800;
+}
+.crew-field input,
+.crew-field select,
+.crew-field textarea,
+.crew-feed input {
+	min-height: 44px;
+	padding: var(--space-2);
+	border: 2px solid var(--ink);
+	border-radius: var(--radius-none);
+	background: var(--paper);
+	color: var(--ink);
+	font: inherit;
+}
+.crew-field--check {
+	flex-direction: row;
+	align-items: center;
+	gap: var(--space-2);
+}
+.crew-field--check input {
+	min-height: auto;
+	width: 24px;
+	height: 24px;
+}
+.crew-field--check label {
+	font-weight: 400;
+}
+.crew-field__hint {
+	color: var(--ink-muted);
+	font-size: 14px;
+}
+.crew-form__actions {
+	margin: 0;
+}
+.crew-form .sc-btn[disabled] {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.crew-errors,
+.crew-notice {
+	padding: var(--space-4);
+	border: var(--border-hard) solid var(--ink);
+}
+.crew-errors {
+	background: var(--scarlet);
+	color: var(--on-scarlet);
+}
+.crew-errors p,
+.crew-errors ul {
+	margin: 0;
+}
+.crew-notice {
+	margin: 0;
+	background: var(--gold);
+	color: var(--on-gold);
+}

@@ -4,9 +4,11 @@
 	"type": "module",
 	"scripts": {
 		"build": "bun src/build.tsx",
-		"dev": "bun run build && bunx wrangler dev",
+		"dev": "bun run build && bunx wrangler dev --local-upstream localhost:8787",
 		"dev:local": "LOCAL_MEDIA=1 bun run dev",
-		"deploy": "bun run build && bunx wrangler deploy",
+		"deploy": "D1_GIGS=1 bun run build && bunx wrangler deploy",
+		"db:migrate": "bunx wrangler d1 migrations apply scarletts-crew --remote",
+		"db:migrate:local": "bunx wrangler d1 migrations apply scarletts-crew --local",
 		"photos:prepare": "bun scripts/prepare-photos.ts",
 		"photos:upload": "bun scripts/upload-media.ts",
 		"typecheck": "tsc --noEmit",
@@ -14,7 +16,9 @@
 		"fmt": "bun biome check --write"
 	},
 	"dependencies": {
-		"hono": "^4.9.0"
+		"hono": "^4.9.0",
+		"htmx.org": "2.0.11",
+		"temporal-polyfill": "^1.0.8"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.15",

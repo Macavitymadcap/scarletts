@@ -449,6 +449,15 @@ A typed `gigs.ts` file rendered at build time, the same way as photos.
 Filtering by date at build time drops past gigs, and a scheduled GitHub
 Action that rebuilds daily keeps the list current without manual deploys.
 
+### Crew calendar (built)
+
+A private calendar for the band at `/crew`, behind Cloudflare Access with
+email one-time PINs. A Hono Worker script, invoked only for `/crew` and
+`/cal` through `run_worker_first`, renders the pages with `hono/jsx` and
+htmx (`hx-boost`), and stores events, unavailability and feed links in D1.
+Gigs marked public are read from D1 at build time and merged into the
+public gig list, so the public pages stay static. The README covers setup.
+
 ### Infrastructure as code
 
 The domain purchase is manual. The R2 bucket, its custom domain, the `www`
