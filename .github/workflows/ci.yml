@@ -4,6 +4,12 @@ on:
   pull_request:
   push:
     branches: [main]
+  # "Publish now" in the crew calendar.
+  repository_dispatch:
+    types: [publish-gigs]
+  # Daily rebuild drops past gigs and picks up newly published ones.
+  schedule:
+    - cron: '0 5 * * *'
 
 jobs:
   check:
@@ -21,7 +27,7 @@ jobs:
   deploy:
     name: deploy
     needs: check
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: production
     # Never run two deploys at once; a newer merge waits for the current one.

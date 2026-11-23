@@ -1,6 +1,8 @@
 import { cp, mkdir, rm } from 'node:fs/promises';
 import type { FC } from 'hono/jsx';
+import { gigs } from './content/gigs';
 import { LOCAL_MEDIA } from './content/media';
+import { fetchPublishedGigs, mergeGigs } from './content/published-gigs';
 import { Bio } from './pages/bio';
 import { Home } from './pages/home';
 import { NotFound } from './pages/not-found';
@@ -31,6 +33,16 @@ if (import.meta.main) {
 	await rm('dist', { recursive: true, force: true });
 	await mkdir('dist', { recursive: true });
 
+	// Deploys set D1_GIGS so gigs published from the crew calendar reach the
+	// home page. A failed fetch stops the deploy rather than dropping them.
+	if (process.env.D1_GIGS === '1') {
+		const published = await fetchPublishedGigs();
+		const merged = mergeGigs(gigs, published);
+		const added = merged.length - gigs.length;
+		gigs.splice(0, gigs.length, ...merged);
+		console.log(`Added ${added} gigs from the crew calendar`);
+	}
+
 	for (const [route, Page] of Object.entries(pages) as [Route, FC][]) {
 		await Bun.write(`dist/${fileFor(route)}`, await render(Page));
 	}
@@ -39,6 +51,10 @@ if (import.meta.main) {
 
 	await cp('public', 'dist', { recursive: true });
 	await cp('src/styles', 'dist/styles', { recursive: true });
+	await cp(
+		'node_modules/htmx.org/dist/htmx.min.js',
+		'dist/scripts/htmx.min.js',
+	);
 
 	if (LOCAL_MEDIA) {
 		const hasMedia =

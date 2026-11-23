@@ -1,13 +1,39 @@
-// Assets-only Worker: no "main" entry, so Cloudflare serves dist/ directly
-// and requests cost nothing. A Worker script arrives with the mailing list.
+// Static assets plus a small Worker script for the band's crew area. Only the
+// paths in run_worker_first invoke the script; every other request is served
+// from dist/ directly, costs nothing and never touches the script.
 {
 	"$schema": "./node_modules/wrangler/config-schema.json",
 	"name": "scarletts",
 	"compatibility_date": "2026-10-01",
+	"main": "src/worker/index.ts",
 	"assets": {
 		"directory": "./dist",
 		// Serves dist/404.html with a 404 status for unknown paths.
-		"not_found_handling": "404-page"
+		"not_found_handling": "404-page",
+		"run_worker_first": [
+			"/crew",
+			"/crew/*",
+			"/cal/*"
+		]
 	},
-	"routes": [{ "pattern": "scarletts.uk", "custom_domain": true }]
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "scarletts-crew",
+			"database_id": "ba9cf0dd-6a2d-48a9-92ea-67e9f39f067e",
+			"migrations_dir": "migrations"
+		}
+	],
+	"vars": {
+		// From Zero Trust > Access > Applications for the /crew application.
+		"ACCESS_TEAM_DOMAIN": "morning-truth-3864.cloudflareaccess.com",
+		"ACCESS_AUD": "972b28a6f7abdd0c8190f246f77cd5b36ee25fdbcd1d55431c0e3ccc97fb919d",
+		"GITHUB_REPO": "Macavitymadcap/scarletts"
+	},
+	"routes": [
+		{
+			"pattern": "scarletts.uk",
+			"custom_domain": true
+		}
+	]
 }
