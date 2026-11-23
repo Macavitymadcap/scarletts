@@ -26,8 +26,8 @@
 	],
 	"vars": {
 		// From Zero Trust > Access > Applications for the /crew application.
-		"ACCESS_TEAM_DOMAIN": "REPLACE_WITH_TEAM.cloudflareaccess.com",
-		"ACCESS_AUD": "REPLACE_WITH_AUDIENCE_TAG",
+		"ACCESS_TEAM_DOMAIN": "morning-truth-3864.cloudflareaccess.com",
+		"ACCESS_AUD": "972b28a6f7abdd0c8190f246f77cd5b36ee25fdbcd1d55431c0e3ccc97fb919d",
 		"GITHUB_REPO": "Macavitymadcap/scarletts"
 	},
 	"routes": [
