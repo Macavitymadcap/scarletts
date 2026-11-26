@@ -1,4 +1,11 @@
-export type Member = { name: string; role: string };
+import type { Photo } from './photos';
+
+export type Member = {
+	name: string;
+	role: string;
+	bio?: string; // a sentence or two
+	photo?: Photo; // a "members" portrait, cropped square on the page
+};
 
 export type Review = { content: string; source: string; citation?: string };
 

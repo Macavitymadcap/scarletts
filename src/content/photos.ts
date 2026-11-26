@@ -1,6 +1,7 @@
 import { media } from './media';
 
-export type PhotoGroup = 'gigs' | 'band';
+// "members" holds line-up portraits, used on the bio page and not the photos page.
+export type PhotoGroup = 'gigs' | 'band' | 'members';
 
 export type Photo = {
 	// R2 key without size suffix or extension, e.g. "photos/gigs/thekla-01".

@@ -53,6 +53,11 @@ colours, type, spacing and shadows for both themes: Paper (light) and Night
 ### Bio and line-up
 
 Edit `src/content/bio.ts`. The first member listed gets the scarlet tile.
+Each member can have a short `bio` and a `photo`. For portraits, put the
+originals in `media/originals/members/` and follow the photo steps below,
+pasting each printed entry into that member's `photo` instead of `photos`.
+Portraits are cropped square, so keep the member in the middle of the shot.
+Until a member has a portrait, the tile shows their initial.
 
 ### Social links
 
