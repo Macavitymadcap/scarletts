@@ -47,7 +47,7 @@ video page once there is a first video on YouTube.
 | Music sales | Bandcamp artist page, embedded | Bandcamp's revenue share |
 | Email address | `bookings@scarletts.uk` forwarded to the band Gmail | Free |
 | Build | Bun script rendering JSX to static HTML | Free |
-| Styling | Open Props and plain CSS | Free |
+| Styling | Plain CSS on the design system's tokens | Free |
 
 The only recurring cost is the domain. The .uk price was not confirmed at the
 time of writing; .co.uk renews at $5.30 at Cloudflare and both are run by the
@@ -138,7 +138,7 @@ directly, for example to draw a waveform with the Web Audio API.
 | ----- | ------ |
 | Runtime and build | Bun |
 | Templating | JSX via `hono/jsx`, rendered to static HTML at build time |
-| Styling | Open Props and plain CSS |
+| Styling | Plain CSS on the design system's tokens |
 | Client-side JavaScript | None in the first iteration |
 | Hosting | Cloudflare Worker (assets only) and R2 |
 | Deployment | Wrangler |

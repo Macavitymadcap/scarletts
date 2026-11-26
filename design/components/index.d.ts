@@ -27,19 +27,26 @@ export interface StickerProps {
 	children?: React.ReactNode;
 }
 export declare function Sticker(props: StickerProps): React.ReactElement;
+export type TicketStatus = "on-sale" | "sold-out";
+export interface Ticket {
+	status: TicketStatus;
+	href: string;
+}
 export interface GigCardProps {
+	date?: string;
 	weekday: string;
 	day: number;
 	month: string;
 	venue: string;
 	city: string;
 	details?: string;
-	status?: "on-sale" | "sold-out" | "free";
-	ticketsHref?: string;
+	ticket?: Ticket;
+	eventHref?: string;
 }
 export declare function GigCard(props: GigCardProps): React.ReactElement;
 export interface PhotoProps {
 	src: string;
+	full?: string;
 	alt: string;
 	width: number;
 	height: number;
@@ -66,14 +73,31 @@ export interface TrackListProps {
 	tracks: Track[];
 }
 export declare function TrackList(props: TrackListProps): React.ReactElement;
+export interface MemberPhoto {
+	src: string;
+	alt: string;
+	width: number;
+	height: number;
+}
 export interface Member {
 	name: string;
 	role: string;
+	bio?: string;
+	photo?: MemberPhoto;
 }
 export interface LineUpProps {
 	members: Member[];
 }
 export declare function LineUp(props: LineUpProps): React.ReactElement;
+export interface Review {
+	content: string;
+	source: string;
+	citation?: string;
+}
+export interface ReviewsProps {
+	reviews: Review[];
+}
+export declare function Reviews(props: ReviewsProps): React.ReactElement;
 export interface GridPhoto {
 	src: string;
 	full?: string;
@@ -99,6 +123,7 @@ declare global {
 			Tricolour: typeof Tricolour;
 			TrackList: typeof TrackList;
 			LineUp: typeof LineUp;
+			Reviews: typeof Reviews;
 			PhotoGrid: typeof PhotoGrid;
 		};
 	}

@@ -1,4 +1,4 @@
-<!-- @dsCard group="Content" height=420 -->
+<!-- @dsCard group="Content" height=620 -->
 <!doctype html>
 <html>
 <head><meta charset="utf-8"><title>GigCard</title>
@@ -8,7 +8,10 @@
 <div id="root"></div>
 <script>
   var S = window.Scarletts, h = React.createElement;
-  ReactDOM.createRoot(document.getElementById('root')).render(h('div', {style: {display: 'grid', gap: '16px'}}, h(S.GigCard, {weekday: 'Sat', day: 14, month: 'Nov', venue: 'Venue name', city: 'Bristol', details: 'Doors 8pm. £8 on the door.', ticketsHref: '#'}), h(S.GigCard, {weekday: 'Fri', day: 4, month: 'Dec', venue: 'Another venue', city: 'Bristol', status: 'sold-out'})));
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', {style: {display: 'grid', gap: '16px'}},
+    h(S.GigCard, {date: '2026-11-14', weekday: 'Sat', day: 14, month: 'Nov', venue: 'Venue name', city: 'Bristol', details: 'Doors 8pm. £8 on the door.', ticket: {status: 'on-sale', href: '#'}}),
+    h(S.GigCard, {date: '2026-12-04', weekday: 'Fri', day: 4, month: 'Dec', venue: 'Another venue', city: 'Bristol', ticket: {status: 'sold-out', href: '#'}}),
+    h(S.GigCard, {date: '2026-12-19', weekday: 'Sat', day: 19, month: 'Dec', venue: 'A third venue', city: 'Bristol', details: 'Free entry.', eventHref: '#'})));
 </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<!-- @dsCard group="Content" height=260 -->
+<!-- @dsCard group="Content" height=960 -->
 <!doctype html>
 <html>
 <head><meta charset="utf-8"><title>LineUp</title>
@@ -8,9 +8,15 @@
 <div id="root"></div>
 <script>
   var S = window.Scarletts, h = React.createElement;
+  var face = (shade) => 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800"><rect width="800" height="800" fill="rgb(' + shade + ',' + shade + ',' + shade + ')"/><circle cx="400" cy="330" r="150" fill="rgb(190,190,190)"/><rect x="220" y="520" width="360" height="280" fill="rgb(190,190,190)"/></svg>');
+  var photo = (name, shade) => ({src: face(shade), alt: 'Placeholder portrait of ' + name, width: 800, height: 800});
   ReactDOM.createRoot(document.getElementById('root')).render(h(S.LineUp, {members: [
-    {name: 'Member one', role: 'Vocals'}, {name: 'Member two', role: 'Guitar'}, {name: 'Member three', role: 'Bass'},
-    {name: 'Member four', role: 'Drums'}, {name: 'Member five', role: 'Keys'}, {name: 'Member six', role: 'Horns'}
+    {name: 'Member one', role: 'Vocals', bio: 'A sentence or two about them, in the band\u2019s voice.', photo: photo('member one', 70)},
+    {name: 'Member two', role: 'Guitar', bio: 'Bios are short, but some run a little longer than others, and the row stretches to fit.', photo: photo('member two', 100)},
+    {name: 'Member three', role: 'Bass', bio: 'One line.', photo: photo('member three', 60)},
+    {name: 'Member four', role: 'Drums', bio: 'No portrait yet, so the initial stands in.'},
+    {name: 'Member five', role: 'Keys', photo: photo('member five', 90)},
+    {name: 'Member six', role: 'Horns'}
   ]}));
 </script>
 </body>
