@@ -9,6 +9,7 @@
 		"deploy": "D1_GIGS=1 bun run build && bunx wrangler deploy",
 		"db:migrate": "bunx wrangler d1 migrations apply scarletts-crew --remote",
 		"db:migrate:local": "bunx wrangler d1 migrations apply scarletts-crew --local",
+		"design:build": "bun scripts/design.ts",
 		"photos:prepare": "bun scripts/prepare-photos.ts",
 		"photos:upload": "bun scripts/upload-media.ts",
 		"typecheck": "tsc --noEmit",

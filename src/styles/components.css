@@ -1,6 +1,6 @@
-/* Scarletts components, from the design system's component bundle.
-   Every value comes from tokens.css. The track list styles are ready for the
-   music page. */
+/* Scarletts components, copied from design/components/bundle.css by
+   `bun run design:build`; edit them there, not here. Every value comes from
+   tokens.css. The track list styles are ready for the music page. */
 
 :where(.sc-btn, .sc-nav a, .sc-gig a, .sc-photo a):focus-visible {
 	outline: 3px solid var(--focus);
@@ -368,9 +368,9 @@
 	display: grid;
 	/* 240px wide or more, and never more than three across. */
 	grid-template-columns: repeat(
-			auto-fit,
-			minmax(max(240px, calc(100% / 3 - 1px)), 1fr)
-		);
+		auto-fit,
+		minmax(max(240px, calc(100% / 3 - 1px)), 1fr)
+	);
 	margin: 0;
 	padding: 0;
 	list-style: none;
