@@ -18,13 +18,13 @@ export const GigCard = ({ gig }: { gig: Gig }) => {
 				<div class="sc-gig__action">
 					{gig.ticket?.status === 'on-sale' ? (
 						<Button href={gig.ticket.href}>Get tickets</Button>
-					) : gig.ticket?.status ==='sold-out' ? (
+					) : gig.ticket?.status === 'sold-out' ? (
 						<Tape tone="ink" tilt="left">
 							Sold out
 						</Tape>
 					) : gig.eventHref ? (
 						<Button href={gig.eventHref}>Event page</Button>
-					) : null }
+					) : null}
 				</div>
 			</div>
 		</article>

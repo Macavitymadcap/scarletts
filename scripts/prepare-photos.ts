@@ -1,6 +1,6 @@
 // Prepares phone photos for the site.
 //
-//   media/originals/<group>/<name>.jpg   (group is "gigs" or "band")
+//   media/originals/<group>/<name>.jpg   (group is "gigs", "band" or "members")
 //   -> media/out/photos/<group>/<name>.webp       1600 px wide
 //   -> media/out/photos/<group>/<name>-800.webp   800 px wide
 //

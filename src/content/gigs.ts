@@ -11,7 +11,7 @@ export type Gig = {
 	city: string;
 	details?: string; // "Doors 8pm. £8 on the door."
 	ticket?: Ticket;
-	eventHref?: string,
+	eventHref?: string;
 };
 
 export const gigs: Gig[] = [
@@ -20,7 +20,8 @@ export const gigs: Gig[] = [
 		venue: 'The Old Stillage',
 		city: 'Bristol',
 		details: 'Girls Are Loud Drum & Bass night',
-		eventHref: 'https://www.instagram.com/reel/Dfu1hj_M7lB/?dmpr=NWJieWJ5cDQzYmV2',
+		eventHref:
+			'https://www.instagram.com/reel/Dfu1hj_M7lB/?dmpr=NWJieWJ5cDQzYmV2',
 	},
 ];
 

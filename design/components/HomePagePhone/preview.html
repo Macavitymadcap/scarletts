@@ -16,7 +16,7 @@
   .hero__photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .hero__photo .sc-sticker { position: absolute; right: var(--space-4); bottom: var(--space-4); }
   .section { padding: var(--space-8) var(--space-4); }
-  .section__head { display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4); }
+  .section__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4); margin-bottom: var(--space-4); }
   .section__title { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 28px; line-height: 1.1; letter-spacing: .5px; text-transform: uppercase; }
   .footer { background: var(--night); color: var(--on-night); padding: var(--space-8) var(--space-4); display: grid; gap: var(--space-4); }
   .footer a { color: var(--on-night); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 15px; }
@@ -57,7 +57,7 @@
       h('div', {className: 'section__head'},
         h('h2', {className: 'section__title', id: 'next'}, 'Next gig'),
         h(S.Tape, {tone: 'scarlet', tilt: 'right'}, 'Coming soon')),
-      h(S.GigCard, {weekday: 'Sat', day: 14, month: 'Nov', venue: 'Venue name', city: 'Bristol', details: 'Doors 8pm. £8 on the door.', ticketsHref: '#'})),
+      h(S.GigCard, {date: '2026-11-14', weekday: 'Sat', day: 14, month: 'Nov', venue: 'Venue name', city: 'Bristol', details: 'Doors 8pm. £8 on the door.', ticket: {status: 'on-sale', href: '#'}})),
     h(S.Checkerboard, {rows: 1}),
     h('footer', {className: 'footer'},
       h('ul', {className: 'footer__links'},

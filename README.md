@@ -22,6 +22,7 @@ script handles only `/crew` and `/cal`, so public pages never invoke it. See
 | `bun run deploy` | Builds and deploys to Cloudflare |
 | `bun test` | Runs the tests |
 | `bun run typecheck` | Type-checks without emitting |
+| `bun run design:build` | Rebuilds the design system bundle and copies its CSS to the site |
 | `bun run photos:prepare` | Prepares photos in `media/originals/` for the site |
 | `bun run photos:upload` | Uploads `media/out/` to the R2 bucket |
 | `bun run db:migrate` | Applies `migrations/` to the remote crew database |
@@ -41,18 +42,44 @@ Run `bunx wrangler login` once before deploying or uploading.
 | `src/build.tsx` | Renders every page into `dist/` |
 | `src/worker/` | The crew calendar: Hono routes, views, D1 queries and Access checks |
 | `migrations/` | D1 schema for the crew calendar |
-| `scripts/` | Photo preparation and media upload |
+| `design/` | The design system: guidelines, tokens, components and page mock-ups |
+| `scripts/` | Photo preparation, media upload and the design system build |
 | `public/` | Files copied into `dist/` unchanged |
 
 The styles come from the Scarletts design system. `tokens.css` holds the
 colours, type, spacing and shadows for both themes: Paper (light) and Night
 (dark), which follows the visitor's system setting.
 
+## Design system
+
+`design/` is the source of truth for how the site looks. Change it there
+first, then bring the site in line:
+
+| File | What to do after changing it |
+| ---- | ---------------------------- |
+| `design/components/src/index.tsx` | Run `bun run design:build` to rebuild `bundle.js`, then update the matching component in `src/components/` |
+| `design/components/bundle.css` | Run `bun run design:build`; it copies the CSS to `src/styles/components.css`, which is not edited by hand |
+| `design/tokens.css` | Make the same change in `src/styles/tokens.css` |
+| `design/README.md`, component READMEs and previews | Nothing; they are guidance and mock-ups |
+
+`test/design.test.ts` fails if `bundle.js`, the site's component CSS or its
+token values fall behind the design system.
+
+Each component has a `preview.html` with a `@dsCard` comment on its first
+line, the format claude.ai/design reads. If the design system is mirrored
+to a claude.ai/design project, only ever sync from this repository to the
+project, never the other way.
+
 ## Editing content
 
 ### Bio and line-up
 
 Edit `src/content/bio.ts`. The first member listed gets the scarlet tile.
+Each member can have a short `bio` and a `photo`. For portraits, put the
+originals in `media/originals/members/` and follow the photo steps below,
+pasting each printed entry into that member's `photo` instead of `photos`.
+Portraits are cropped square, so keep the member in the middle of the shot.
+Until a member has a portrait, the tile shows their initial.
 
 ### Social links
 

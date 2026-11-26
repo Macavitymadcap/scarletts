@@ -1,6 +1,7 @@
 /* Scarletts — generated from tokens.json */
 :root,
 [data-theme="light"] {
+	color-scheme: light;
 	--paper: #f3ede0;
 	--ink: #141211;
 	--ink-muted: #5c544b;
@@ -17,7 +18,29 @@
 	--shadow-offset: 6px 6px 0 #141211;
 	--shadow-press: 2px 2px 0 #141211;
 }
+/* Night follows the visitor's system setting; data-theme forces either theme. */
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		color-scheme: dark;
+		--paper: #141110;
+		--ink: #f3ede0;
+		--ink-muted: #b0a798;
+		--night: #050404;
+		--on-night: #f3ede0;
+		--scarlet: #d2161e;
+		--scarlet-ink: #ff6b66;
+		--on-scarlet: #fff8ee;
+		--gold: #f2b705;
+		--on-gold: #141211;
+		--green: #0b6b35;
+		--on-green: #fff8ee;
+		--focus: #f2b705;
+		--shadow-offset: 6px 6px 0 #d2161e;
+		--shadow-press: 2px 2px 0 #d2161e;
+	}
+}
 [data-theme="dark"] {
+	color-scheme: dark;
 	--paper: #141110;
 	--ink: #f3ede0;
 	--ink-muted: #b0a798;
